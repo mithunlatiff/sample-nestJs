@@ -1,7 +1,7 @@
 version: 2
 plan:
     project-key: SAMPLE
-    key: SAMPLE
+    key: SAM
     name: NodeJs
 stages:
   - Build node_modules:
