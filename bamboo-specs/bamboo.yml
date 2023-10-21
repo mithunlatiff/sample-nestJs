@@ -39,5 +39,8 @@ deploy_ecs:
         - aws s3 ls
   docker:
     image: amazon/aws-cli:latest
+    volumes:
+      ${bamboo.working.directory}: ${bamboo.working.directory}
+      ${bamboo.tmp.directory}: ${bamboo.tmp.directory}
     docker-run-arguments:
     - --entrypoint=/usr/bin/env
