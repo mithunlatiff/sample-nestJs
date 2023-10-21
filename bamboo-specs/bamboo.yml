@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: SSX
-    key: SSX
+    project-key: SSY
+    key: SSY
     name: NodeJs
 stages:
   - Build node_modules:
@@ -37,4 +37,6 @@ deploy_ecs:
         - export AWS_DEFAULT_REGION=ap-southeast-1
         - export BUILD_ID=${bamboo.buildNumber}
         - export repo=sample-node:latest
-        - aws s3 ls
+        - CLUSTER_NAME=sample-NestJs
+        - SERVICE_NAME=mysrv
+        - aws ecs update-service --cluster $CLUSTER_NAME --service $SERVICE_NAME --force-new-deployment
