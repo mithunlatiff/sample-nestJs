@@ -22,8 +22,10 @@ build_docker:
     - script:
         - whoami
         - echo 'Docker Build'
+        - dockerUsername = ${bamboo.dockerusername}
+        - dockerPassword = ${bamboo.dockersecret}
         - docker build -t nodeapp:latest .
-        - docker login -u ${bamboo.dockerusername} -p ${bamboo.dockersecret} docker.io/mithunlatiff
+        - docker login -u $dockerUsername -p $dockerPassword docker.io/mithunlatiff
         - docker tag nodeapp:latest mithunlatiff/sample-node:latest
         - docker push mithunlatiff/sample-node:latest
         - docker tag nodeapp:latest mithunlatiff/sample-node:${bamboo.buildNumber}
