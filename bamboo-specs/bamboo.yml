@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: SSSS
-    key: SSSS
+    project-key: TRX
+    key: TRX
     name: NodeJs
 stages:
   - Build node_modules:
