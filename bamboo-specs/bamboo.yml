@@ -31,11 +31,11 @@ deploy_ecs:
   tasks:
     # agent preinstalled with AWS CLI
     - script:
+        - whoami
+        - rm -rf ~/.aws
         - mkdir -p ~/.aws
-        - ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
-        - SECRET_KEY_ID=$AWS_SECRET_ACCESS_KEY
         - echo $ACCESS_KEY_ID
-        - echo -e "[default]\naws_access_key_id = $ACCESS_KEY_ID\naws_secret_access_key = $SECRET_KEY_ID" > ~/.aws/credentials 
+        - echo -e "[default]\naws_access_key_id = $bamboo_AWS_ACCESS_KEY_ID\naws_secret_access_key = $bamboo_AWS_SECRET_ACCESS_KEY" > ~/.aws/credentials 
         - export AWS_DEFAULT_PROFILE=default
         - export BUILD_ID=${bamboo.buildNumber}
         - export repo=sample-node:latest
