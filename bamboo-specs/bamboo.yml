@@ -39,3 +39,5 @@ deploy_ecs:
         - aws s3 ls
   docker:
     image: amazon/aws-cli:latest
+    docker-run-arguments:
+    - --entrypoint=/usr/bin/env
