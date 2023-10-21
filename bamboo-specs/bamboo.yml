@@ -33,7 +33,9 @@ build_docker:
 deploy_ecs:
   tasks:
     - script:
+        - sleep 50
         - mkdir -p ~/.aws
+        - sleep 500
         - echo -e "[default]\naws_access_key_id = $AWS_ACCESS_KEY_ID\naws_secret_access_key = $AWS_SECRET_ACCESS_KEY" > ~/.aws/credentials
         - export AWS_DEFAULT_PROFILE=default
         - export BUILD_ID=${bamboo.buildNumber}
