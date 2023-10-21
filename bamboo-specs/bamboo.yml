@@ -31,11 +31,11 @@ deploy_ecs:
   tasks:
     - script:
         - mkdir -p ~/aws-cli
+        - mkdir -p ~/.aws
+        - echo -e "[default]\naws_access_key_id = $AWS_ACCESS_KEY_ID\naws_secret_access_key = $AWS_SECRET_ACCESS_KEY" > ~/.aws/credentials 
         - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
         - unzip awscliv2.zip
         - ./aws/install -i ~/aws-cli -b ~/aws-cli/bin
-        - mkdir -p ~/.aws
-        - echo -e "[default]\naws_access_key_id = $AWS_ACCESS_KEY_ID\naws_secret_access_key = $AWS_SECRET_ACCESS_KEY" > ~/.aws/credentials
         - export AWS_DEFAULT_PROFILE=default
         - export BUILD_ID=${bamboo.buildNumber}
         - export repo=sample-node:latest
