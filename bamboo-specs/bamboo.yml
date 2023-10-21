@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: WAX
-    key: WAX
+    project-key: MYPJ
+    key: MYPJ
     name: NodeJs
 stages:
   - Build node_modules:
@@ -34,7 +34,6 @@ deploy_ecs:
         - whoami
         - rm -rf ~/.aws
         - mkdir -p ~/.aws
-        - echo $ACCESS_KEY_ID
         - echo -e "[default]\naws_access_key_id = $bamboo_AWS_ACCESS_KEY_ID\naws_secret_access_key = $bamboo_AWS_SECRET_ACCESS_KEY" > ~/.aws/credentials 
         - export AWS_DEFAULT_PROFILE=default
         - export BUILD_ID=${bamboo.buildNumber}
