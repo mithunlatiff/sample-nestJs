@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: MYPJ
-    key: MYPJ
+    project-key: SSD
+    key: SSD
     name: NodeJs
 stages:
   - Build node_modules:
@@ -32,6 +32,7 @@ deploy_ecs:
     # agent preinstalled with AWS CLI
     - script:
         - whoami
+        - echo 'aws'
         - rm -rf ~/.aws
         - mkdir -p ~/.aws
         - echo -e "[default]\naws_access_key_id = $bamboo_AWS_ACCESS_KEY_ID\naws_secret_access_key = $bamboo_AWS_SECRET_ACCESS_KEY" > ~/.aws/credentials 
