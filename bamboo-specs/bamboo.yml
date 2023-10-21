@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: MKS
-    key: MKS
+    project-key: SFX
+    key: SFX
     name: NodeJs
 stages:
   - Build node_modules:
@@ -33,10 +33,9 @@ deploy_ecs:
         - mkdir -p ~/aws-cli
         - mkdir -p ~/.aws
         - echo -e "[default]\naws_access_key_id = $AWS_ACCESS_KEY_ID\naws_secret_access_key = $AWS_SECRET_ACCESS_KEY" > ~/.aws/credentials 
-        - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-        - unzip awscliv2.zip
-        - ./aws/install -i ~/aws-cli -b ~/aws-cli/bin
         - export AWS_DEFAULT_PROFILE=default
         - export BUILD_ID=${bamboo.buildNumber}
         - export repo=sample-node:latest
-        - ~/aws-cli/bin/aws s3 ls
+        - aws s3 ls
+  docker:
+    image: amazon/aws-cli:latest
