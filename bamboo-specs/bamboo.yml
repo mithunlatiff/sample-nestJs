@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: SSY
-    key: SSY
+    project-key: SSZ
+    key: SSZ
     name: NodeJs
 stages:
   - Build node_modules:
