@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: SSD
-    key: SSD
+    project-key: SSX
+    key: SSX
     name: NodeJs
 stages:
   - Build node_modules:
