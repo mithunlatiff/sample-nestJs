@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: AMT
-    key: AMT
+    project-key: STS
+    key: STS
     name: NodeJs
 stages:
   - Build node_modules:
