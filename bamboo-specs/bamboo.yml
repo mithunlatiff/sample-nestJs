@@ -23,7 +23,7 @@ build_docker:
         - whoami
         - echo 'Docker Build'
         - docker build -t nodeapp:latest .
-        - docker login mithunlatiff
+        - docker login -u ${bamboo.dockerusername} -p ${bamboo.dockersecret} docker.io/mithunlatiff
         - docker tag nodeapp:latest mithunlatiff/sample-node:latest
         - docker push mithunlatiff/sample-node:latest
         - docker tag nodeapp:latest mithunlatiff/sample-node:${bamboo.buildNumber}
