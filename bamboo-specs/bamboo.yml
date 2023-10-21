@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: SSS
-    key: SSS
+    project-key: MKS
+    key: MKS
     name: NodeJs
 stages:
   - Build node_modules:
@@ -30,8 +30,6 @@ build_docker:
         - docker push docker.io/mithunlatiff/sample-node:latest
         - docker tag nodeapp:latest docker.io/mithunlatiff/sample-node:${bamboo.buildNumber}
         - docker push docker.io/mithunlatiff/sample-node:${bamboo.buildNumber}
-  requirements:
-    - docker
 deploy_ecs:
   tasks:
     - script:
