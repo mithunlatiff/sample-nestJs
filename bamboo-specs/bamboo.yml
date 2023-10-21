@@ -16,7 +16,7 @@ build:
     - npm
   artifacts:
     - name: node_modules
-      path: node_modules
+      pattern: node_modules/
 build_docker:
   tasks:
     - script:
