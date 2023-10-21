@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: SFX
-    key: SFX
+    project-key: SSSS
+    key: SSSS
     name: NodeJs
 stages:
   - Build node_modules:
