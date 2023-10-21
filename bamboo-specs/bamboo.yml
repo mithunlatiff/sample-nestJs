@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: MYP
-    key: MYP
+    project-key: SATM
+    key: SATM
     name: NodeJs
 stages:
   - Build node_modules:
