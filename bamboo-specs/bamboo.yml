@@ -9,7 +9,7 @@ stages:
           - echo 'run npm install'
           - npm install
         requirements:
- 	  - npm
+ 	        - npm
         artifacts:
           - name: node modules
             path: node_modules
