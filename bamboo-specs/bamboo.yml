@@ -30,16 +30,17 @@ build_docker:
         - docker push docker.io/mithunlatiff/sample-node:latest
         - docker tag nodeapp:latest docker.io/mithunlatiff/sample-node:${bamboo.buildNumber}
         - docker push docker.io/mithunlatiff/sample-node:${bamboo.buildNumber}
+  requirements:
+    - docker
 deploy_ecs:
   tasks:
     - script:
-        - sleep 50
+        - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        - unzip awscliv2.zip
+        - ./aws/install
         - mkdir -p ~/.aws
-        - sleep 500
         - echo -e "[default]\naws_access_key_id = $AWS_ACCESS_KEY_ID\naws_secret_access_key = $AWS_SECRET_ACCESS_KEY" > ~/.aws/credentials
         - export AWS_DEFAULT_PROFILE=default
         - export BUILD_ID=${bamboo.buildNumber}
         - export repo=sample-node:latest
         - aws s3 ls
-  docker:
-    image: amazon/aws-cli
