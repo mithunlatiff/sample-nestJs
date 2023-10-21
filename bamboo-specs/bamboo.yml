@@ -20,6 +20,7 @@ build:
 build_docker:
   tasks:
     - script:
+        - docker login docker.io/mithunlatiff
         - docker build -t nodeapp:latest .
         - docker tag nodeapp:latest mithunlatiff/sample-node:latest
         - docker push mithunlatiff/sample-node:latest
