@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: SAM
-    key: SAM
+    project-key: MYP
+    key: MYP
     name: NodeJs
 stages:
   - Build node_modules:
