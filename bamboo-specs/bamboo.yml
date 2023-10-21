@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: TRX
-    key: TRX
+    project-key: WAX
+    key: WAX
     name: NodeJs
 stages:
   - Build node_modules:
