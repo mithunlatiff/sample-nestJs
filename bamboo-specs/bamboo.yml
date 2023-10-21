@@ -20,8 +20,9 @@ build:
 build_docker:
   tasks:
     - script:
-        - docker login docker.io/mithunlatiff
+        - echo 'Docker Build'
         - docker build -t nodeapp:latest .
+        - docker login docker.io/mithunlatiff
         - docker tag nodeapp:latest mithunlatiff/sample-node:latest
         - docker push mithunlatiff/sample-node:latest
         - docker tag nodeapp:latest mithunlatiff/sample-node:${bamboo.buildNumber}
