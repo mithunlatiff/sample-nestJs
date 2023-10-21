@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: TTS
-    key: TTS
+    project-key: SSS
+    key: SSS
     name: NodeJs
 stages:
   - Build node_modules:
