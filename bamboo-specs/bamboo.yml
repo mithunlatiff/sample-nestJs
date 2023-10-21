@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: MKS
-    key: MKS
+    project-key: SAS
+    key: SAS
     name: NodeJs
 stages:
   - Build node_modules:
@@ -16,9 +16,6 @@ build:
         - npm install
   requirements:
     - npm
-  artifacts:
-    - name: node_modules
-      pattern: node_modules/
 build_docker:
   tasks:
     - script:
@@ -33,12 +30,13 @@ build_docker:
 deploy_ecs:
   tasks:
     - script:
+        - mkdir -p ~/aws-cli
         - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
         - unzip awscliv2.zip
-        - ./aws/install
+        - ./aws/install -i ~/aws-cli -b ~/aws-cli/bin
         - mkdir -p ~/.aws
         - echo -e "[default]\naws_access_key_id = $AWS_ACCESS_KEY_ID\naws_secret_access_key = $AWS_SECRET_ACCESS_KEY" > ~/.aws/credentials
         - export AWS_DEFAULT_PROFILE=default
         - export BUILD_ID=${bamboo.buildNumber}
         - export repo=sample-node:latest
-        - aws s3 ls
+        - ~/aws-cli/bin/aws s3 ls
