@@ -1,0 +1,24 @@
+project:
+  key: TEST
+  plan:
+    key: TEST
+    name: NodeJs
+stages:
+  - jobs:
+      - scripts:
+          - echo 'run npm install'
+          - npm install
+        requirements:
+ 	  - npm
+        artifacts:
+          - name: node modules
+            path: node_modules
+  - jobs:
+      - scripts:
+          - docker build -t nodeapp:latest .
+          - docker tag nodeapp:latest mithunlatiff/sample-node:latest
+          - docker push mithunlatiff/sample-node:latest
+          - docker tag nodeapp:latest mithunlatiff/sample-node:${bamboo.buildNumber}
+          - docker push mithunlatiff/sample-node:${bamboo.buildNumber}
+        requirements:
+          - docker
