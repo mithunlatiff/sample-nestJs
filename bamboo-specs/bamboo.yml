@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: STS
-    key: STS
+    project-key: NEXT
+    key: NEXT
     name: NodeJs
 stages:
   - Build node_modules:
