@@ -1,7 +1,7 @@
 version: 2
 plan:
-    project-key: SATM
-    key: SATM
+    project-key: AMT
+    key: AMT
     name: NodeJs
 stages:
   - Build node_modules:
