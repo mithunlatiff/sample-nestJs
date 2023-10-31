@@ -9,6 +9,6 @@ export class AppService {
     // recordException converts the error into a span event.
     span.setAttribute('test', true);
     span.recordException(new Error('This is a test error'));
-    return 'Hello World! This is Update no 1';
+    return 'Hello World! This is Update no 2';
   }
 }
